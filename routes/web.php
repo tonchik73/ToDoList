@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//Route::get('/', [TaskController::class, 'index'])->middleware('auth');
 Route::get('/tasks', [TaskController::class, 'index'])->middleware('auth')->name('task.index');
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('task.create');
 Route::post('/tasks', [TaskController::class, 'store'])->name('task.store');
