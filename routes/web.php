@@ -22,9 +22,4 @@ Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('task.ed
 Route::patch('/tasks/{task}', [TaskController::class, 'update'])->name('task.update');
 Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('task.delete');
 
-
 Auth::routes();
-
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-

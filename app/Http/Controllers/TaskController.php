@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $task = Task::all();
+        $task = auth()->user()->usersTasks;
+
         return view('task.index', compact('task'));
     }
 
@@ -20,9 +22,12 @@ class TaskController extends Controller
 
     public function store()
     {
+        $task = auth()->user();
         $data = request()->validate([
             'task' => 'string',
+            'user_id' => '',
         ]);
+
         Task::create($data);
         return redirect()->route('task.index');
     }
